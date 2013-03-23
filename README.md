@@ -43,3 +43,36 @@ You can use the following additional options to modify the behaviour of the spin
 $('#stack').stacker({ maxVisibleItems: 5 });
 </script>
 ```
+
+## Methods
+
+**add**
+
+Adds a new card to the stack.
+
+```
+$('#stack').stacker('add');
+```
+
+**remove**
+
+Removes the currently active card from the stack.
+
+```
+$('#stack').stacker('remove');
+```
+
+**previous**
+
+Displays the previous card in the stack.
+
+```
+$('#stack').stacker('previous');
+```
+
+**next**
+
+Displays the next card in the stack.
+
+```
+$('#stack').stacker('next');
