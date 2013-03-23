@@ -1,0 +1,16 @@
+﻿.stack { }
+
+.stack-item {
+	border: 1px solid #000;
+    background-color: #FFF;
+    width: 255px;
+    height: 270px;
+    padding: 0px;
+    margin: 0;    
+}
+
+.stack-index {
+	float: right;
+	font-weight: bold;
+	padding: 5px 5px 0 0;
+}
