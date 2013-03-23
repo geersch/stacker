@@ -1,5 +1,5 @@
-# jQuery Stack plugin
+# Stacker
 
 ![Spin Edit Example](http://geersch.github.com/stacker/images/example.png)
 
-Create a stack of cards to cylce through using this jQuery plugin.
+Easily create a stack of cards which you can cylce through using this jQuery plugin.
