@@ -22,32 +22,37 @@
 
         add: function () {
             var newItem = $(this.itemTemplate);
-            this._setActiveItemIndex(this.items.length);
+            this.activeItemIndex = this.items.length;
             newItem.attr('data-id', this.nextCardNumber);
             this.nextCardNumber++;
             this.items.push(newItem);
             this._draw();
+            this._triggerActiveItemChanged();
         },
 
         remove: function () {
+            if (this.items.length == 0) return;
             this.items.splice(this.activeItemIndex, 1);
             if (this.activeItemIndex > 0)
-                this._setActiveItemIndex(this.activeItemIndex - 1);
+                this.activeItemIndex--;
             if (this.items.length == 0)
-                this._setActiveItemIndex(-1);
+                this.activeItemIndex = -1;
             this._draw();
+            this._triggerActiveItemChanged();
         },
 
         previous: function () {
             if (this.activeItemIndex == this.items.length - 1) return;
-            this._setActiveItemIndex(this.activeItemIndex + 1);
+            this.activeItemIndex++;
             this._draw();
+            this._triggerActiveItemChanged();
         },
 
         next: function () {
             if (this.activeItemIndex == 0) return;
-            this._setActiveItemIndex(this.activeItemIndex - 1);
+            this.activeItemIndex--;
             this._draw();
+            this._triggerActiveItemChanged();
         },
 
         _draw: function () {
@@ -99,16 +104,12 @@
             this.content.animate({ opacity: 1 }, 250);
         },
 
-        _setActiveItemIndex: function (value) {
-            this.activeItemIndex = value;
-            this._triggerActiveItemChanged();
-        },
-
         _setActiveItem: function (e) {
             var index = this.items.indexOf(e.data.item);
             if (this.activeItemIndex == index) return;
-            this._setActiveItemIndex(index);
+            this.activeItemIndex = index;
             this._draw();
+            this._triggerActiveItemChanged();
         },
 
         _triggerActiveItemChanged: function () {
