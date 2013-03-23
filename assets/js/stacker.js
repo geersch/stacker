@@ -21,8 +21,8 @@
 		constructor: Stacker,
 
 		add: function () {
-			var newItem = $(this.itemTemplate);
-			this.activeItemIndex = this.items.length;
+		    var newItem = $(this.itemTemplate);
+		    this._setActiveItemIndex(this.items.length);
 			newItem.attr('data-id', this.nextCardNumber);
 			this.nextCardNumber++;
 			this.items.push(newItem);
@@ -32,21 +32,21 @@
 		remove: function () {
 			this.items.splice(this.activeItemIndex, 1);
 			if (this.activeItemIndex > 0)
-				this.activeItemIndex--;
+			    this._setActiveItemIndex(this.activeItemIndex - 1);				
 			if (this.items.length == 0)
-				this.activeItemIndex = -1;
+			    this._setActiveItemIndex(-1);				
 			this._draw();
 		},
 
 		previous: function () {
-			if (this.activeItemIndex == this.items.length - 1) return;
-			this.activeItemIndex++,
+		    if (this.activeItemIndex == this.items.length - 1) return;
+		    this._setActiveItemIndex(this.activeItemIndex + 1);			
 			this._draw();
 		},
 
 		next: function () {
-			if (this.activeItemIndex == 0) return;
-			this.activeItemIndex--;
+		    if (this.activeItemIndex == 0) return;
+		    this._setActiveItemIndex(this.activeItemIndex - 1);			
 			this._draw();
 		},
 
@@ -97,14 +97,17 @@
 
 			this.content.show();
 			this.content.animate({ opacity: 1 }, 250);
+		},
 
-			this._triggerActiveItemChanged();
+		_setActiveItemIndex: function (value) {		    		    		    
+		    this.activeItemIndex = value;
+		    this._triggerActiveItemChanged();
 		},
 
 		_setActiveItem: function (e) {
 			var index = this.items.indexOf(e.data.item);
 			if (this.activeItemIndex == index) return;
-			this.activeItemIndex = index;
+			this._setActiveItemIndex(index);			
 			this._draw();
 		},
 

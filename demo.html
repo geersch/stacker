@@ -61,6 +61,7 @@ function StackerViewModel(stacker) {
 
     this._stacker = stacker;
     this._stacker.on('activeItemChanged', function (e) {
+        console.log(e);
         self.numberOfItems(e.count);
         self.activeItemIndex(e.activeItemIndex);
         self.activeId(e.id);
