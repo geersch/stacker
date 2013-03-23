@@ -16,7 +16,7 @@ The demo uses [Knockout](http://www.knockoutjs.com) to demonstrate the data bind
 
 ## Usage
 
-This component was created using [jQuery](http://code.jquery.com/jquery-1.9.1.min.js) 1.9.1.
+This component was created using [jQuery 1.9.1](http://code.jquery.com/jquery-1.9.1.min.js).
 
 Basic usage:
 
