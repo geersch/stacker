@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stacker Demo</title>        
+    <script src="assets/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+	<script src="assets/js/stacker.js" type="text/javascript"></script>
+	<script src="assets/js/knockout-2.2.1.js" type="text/javascript"></script>
+    <link href="assets/css/stacker.css" rel="stylesheet" type="text/css" />
+</head><body>
+
+<h2>Stacker Demo</h2>
+    
+<ul>
+	<li><strong>Number of items: </strong><span data-bind="text: numberOfItems"></span></li>
+	<li><strong>Active item index: </strong><span data-bind="text: activeItemIndex"></span></li>
+    <li><strong>Active card ID: </strong><span data-bind="text: activeId"></span></li>
+</ul>
+
+<button data-bind="click: add">+</button>
+<button data-bind="click: remove">-</button>
+<button data-bind="click: previous">&laquo;</button>
+<button data-bind="click: next">&raquo;</button>
+<br /><br />
+
+<div id="stack">
+    <form data-bind="with: $root.person">
+		<label>Lastname</label>
+		<input type="text" id="lastname" name="lastname" data-bind="value: lastName" />
+		<br />
+		<label>Firstname</label>
+		<input type="text" id="firstname" name="firstname" data-bind="value: firstName" />
+        <br />
+		<button data-bind="click: doSomething">Do something</button>		
+	</form>
+</div>
+
+<script type="text/javascript">
+
+$(function () {    
+    var model = new StackerViewModel($("#stack"));
+    ko.applyBindings(model);
+});
+
+function Person() {
+    this.firstName = ko.observable();
+    this.lastName = ko.observable();
+
+    this.doSomething = function () {
+        alert('Do something with ' + this.firstName() + ' ' + this.lastName());
+    }
+};
+
+function StackerViewModel(stacker) {
+    var self = this;
+    this.numberOfItems = ko.observable(0);
+    this.activeItemIndex = ko.observable(0);
+    this.activeId = ko.observable(0);
+    this.persons = new Array();
+    this.persons.push(new Person());
+    this.person = ko.observable();
+
+    this._stacker = stacker;
+    this._stacker.on('activeItemChanged', function (e) {
+        self.numberOfItems(e.count);
+        self.activeItemIndex(e.activeItemIndex);
+        self.activeId(e.id);
+        self.person(self.persons[e.activeItemIndex]);
+    });
+    this._stacker.stacker({ 'maxVisibleItems': 9 });
+
+    this.add = function () {
+        this.persons.push(new Person());
+        this._stacker.stacker('add');
+    };
+
+    this.remove = function () {
+        this.persons.splice(this.activeItemIndex(), 1);
+        this._stacker.stacker('remove');
+    };
+
+    this.previous = function () {
+        this._stacker.stacker('previous');
+    };
+
+    this.next = function () {
+        this._stacker.stacker('next');
+    }
+};
+
+</script>
+
+</body></html>
