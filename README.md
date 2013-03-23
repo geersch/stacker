@@ -15,10 +15,17 @@ Basic usage:
 <script type="text/javascript" src="stacker.js"></script>
 <link rel="stylesheet" type="text/css" href="stacker.css" />
 
-<div class="stack">
+<div id="stack">
+  <form action="...">
+    <label>...</label>
+    <input type="text" id="..." />
+    ...  
+  </form>
 </div>
 
 <script type="text/javascript">
-$('.stack').stacker();
+$('#stack').stacker();
 </script>
 ```
+
+The above example converts the DIV with id stack into a stacker. The HTML (form) contained within the DIV will be used by the stacker as the template to display for a card in the stack.
