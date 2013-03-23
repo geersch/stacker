@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Stacker</title>
+    <title>stacker</title>
   </head>
 
   <body>
@@ -18,8 +18,7 @@
         <header class="inner">
           <a id="forkme_banner" href="https://github.com/geersch/stacker">View on GitHub</a>
 
-          <h1 id="project_title">Stacker</h1>
-          <h2 id="project_tagline">Create a stack of cards to cylce through using this jQuery plugin</h2>
+          <h1 id="project_title">stacker</h1>          
 
             <section id="downloads">
               <a class="zip_download_link" href="https://github.com/geersch/stacker/zipball/master">Download this project as a .zip file</a>
@@ -31,44 +30,137 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h3>Welcome to GitHub Pages.</h3>
+        <h3>Stacker jQuery plugin</h3>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>Easily create a stack of cards which you can cylce through using this jQuery plugin.</p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+<img src="images/example.png" alt="Stacker example" title="Stacker example" style="height: 250px; width: 250px;"/>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<h3>Demo</h3>
 
-<h3>Designer Templates</h3>
+<a href="demo.html" target="_blank">Click here for a live demo</a>.
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<p>The HTML which you place within the DIV that is converted into a stacker will be used as a template to display the contents of the currently active card. As you navigate through the stacker (previous, next, adding items...) an event will be triggered. Use the event data to decide which data you should bind to the HTML elements displayed within the active card. The demo uses Knockout to demonstrate the data binding as you cycle through the cards.</p>
 
-<h3>Rather Drive Stick?</h3>
+<h3>Usage</h3>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<p>This component was created using <a href="http://code.jquery.com/jquery-1.9.1.min.js" target="_blank">jQuery 1.9.1</a>.</p>
 
-<h3>Authors and Contributors</h3>
+<p>Basic usage:</p>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<div class="csharpcode">
+<!-- code formatted by http://manoli.net/csharpformat/ -->
+<pre class="csharpcode">
+<span class="kwrd">&lt;</span><span class="html">script</span> <span class="attr">type</span><span class="kwrd">="text/javascript"</span> <span class="attr">src</span><span class="kwrd">="jquery-1.9.1.min"</span><span class="kwrd">&gt;&lt;/</span><span class="html">script</span><span class="kwrd">&gt;</span>
+&lt;script type=<span class="str">"text/javascript"</span> src=<span class="str">"stacker.js"</span>&gt;&lt;/script&gt;
+&lt;link rel=<span class="str">"stylesheet"</span> type=<span class="str">"text/css"</span> href=<span class="str">"stacker.css"</span> /&gt;
 
-<h3>Support or Contact</h3>
+&lt;div id=<span class="str">"stack"</span>&gt;
+  &lt;form action=<span class="str">"..."</span>&gt;
+    &lt;label&gt;...&lt;/label&gt;
+    &lt;input type=<span class="str">"text"</span> id=<span class="str">"..."</span> /&gt;
+    ...  
+  &lt;/form&gt;
+&lt;/div&gt;
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-    </div>
+&lt;script type=<span class="str">"text/javascript"</span>&gt;
+$(<span class="str">'#stack'</span>).stacker();
+<span class="kwrd">&lt;/</span><span class="html">script</span><span class="kwrd">&gt;</span></pre>
+</div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Stacker maintained by <a href="https://github.com/geersch">geersch</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
+<p>The above example converts the DIV with id stack into a stacker. The HTML (form) contained within the DIV will be used by the stacker as the template to display for a card in the stack.</p>         
 
-    
+<p>You can use the following additional options to modify the behaviour of the spin edit control:</p>         
+
+<ul>
+    <li><strong>maxVisibleItems</strong>: The maximum number of cards visible at one time (default 10).</li>
+</ul>
+
+<div class="csharpcode">
+<!-- code formatted by http://manoli.net/csharpformat/ -->
+<pre class="csharpcode">
+<span class="kwrd">&lt;</span><span class="html">div</span> <span class="attr">id</span><span class="kwrd">="stack"</span><span class="kwrd">&gt;</span>
+...
+<span class="kwrd">&lt;/</span><span class="html">div</span><span class="kwrd">&gt;</span>
+
+<span class="kwrd">&lt;</span><span class="html">script</span> <span class="attr">type</span><span class="kwrd">="text/javascript"</span><span class="kwrd">&gt;</span>
+$(<span class="str">'#stack'</span>).stacker({ maxVisibleItems: 5 });
+<span class="kwrd">&lt;/</span><span class="html">script</span><span class="kwrd">&gt;</span></pre>
+</div>
+
+<h3>Methods</h3>
+
+<p><strong>add</strong></p>
+
+<p>Adds a new card to the stack.</p>
+
+<div class="csharpcode">
+<!-- code formatted by http://manoli.net/csharpformat/ -->
+<pre>
+$('#stack').stacker('add');</pre>
+</div>
+
+<p><strong>remove</strong></p>
+
+<p>Removes the currently active card from the stack.</p>
+
+<div class="csharpcode">
+<!-- code formatted by http://manoli.net/csharpformat/ -->
+<pre>
+$('#stack').stacker('remove');</pre>
+</div>
+
+<p><strong>previous</strong></p>
+
+<p>Displays the previous card in the stack.</p>
+
+<div class="csharpcode">
+<!-- code formatted by http://manoli.net/csharpformat/ -->
+<pre>
+$('#stack').stacker('previous');</pre>
+</div>
+
+<p><strong>next</strong></p>
+
+<p>Displays the next card in the stack.</p>
+
+<div class="csharpcode">
+<!-- code formatted by http://manoli.net/csharpformat/ -->
+<pre>
+$('#stack').stacker('next');</pre>
+</div>
+
+<h3>Events</h3>
+
+<p>The stacker supports one event, namely activeItemChanged. This event is triggered when the active card changes. This can be caused by navigating through the stack or by adding / removing a card.</p>
+
+<p>The event object has the following additional properties:</p>          
+
+<ul>
+    <li><strong>count</strong>: The number of cards in the stack.</li>
+    <li><strong>activeItemIndex</strong>: The index (0-based) of the currently active card.</li>
+    <li><strong>id</strong>: The unique ID of the currently active card.</li>
+    <li><strong>container</strong>: The contents (HTML) of the element turned into a stacker as a jQuery object.</li>
+</ul>
+
+<div class="csharpcode">
+<!-- code formatted by http://manoli.net/csharpformat/ -->
+<pre class="csharpcode">
+var stacker = $('#stack').stacker();
+stacker.on("activeItemChanged", function (e) {
+    console.log(e.count);
+});</pre>
+</div>
+
+<h3>License</h3>
+
+<p>This code is made available under the Apache License v2.0.</p>    
+
+<h3>Contact</h3>
+
+<p>Questions or suggestions? Mail me at <a href="mailto:geersch@gmail.com">geersch@gmail.com</a>.</p>
+
+<p>Follow <a href="https://twitter.com/#!/cgeers" target="_blank">@cgeers</a> on Twitter.</p>
 
   </body>
 </html>
