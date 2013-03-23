@@ -10,7 +10,7 @@ Easily create a stack of cards which you can cylce through using this jQuery plu
 
 The HTML which you place within the DIV that is converted into a stacker will be used as a template to display the contents of the currently active card.
 As you navigate through the stacker (previous, next, adding items...) an event will be triggered. Use the event data to decide which data you should bind to the HTML elements displayed within the active card.
-The demo uses [Knockout](http://www.knockoutjs.com) to demonstrate the data binding.
+The demo uses [Knockout](http://www.knockoutjs.com) to demonstrate the data binding as you cycle through the cards.
 
 ## Usage
 
