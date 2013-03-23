@@ -76,6 +76,7 @@ Displays the next card in the stack.
 
 ```
 $('#stack').stacker('next');
+```
 
 ## Events
 
