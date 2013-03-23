@@ -76,3 +76,25 @@ Displays the next card in the stack.
 
 ```
 $('#stack').stacker('next');
+
+## Events
+
+The stacker supports one event, namely **activeItemChanged**. This event is triggered when the active card changes. This can be caused by navigating through the stack or by adding / removing a card.
+
+The event object has one additional property:
+
+* **count**: The number of cards in the stack.
+* **activeItemIndex**: The index (0-based) of the currently active card.
+* **id**: The unique ID of the currently active card.
+* **container**: The contents (HTML) of the element turned into a stacker as a jQuery object.
+
+```
+var stacker = $('#stack').stacker();
+stacker.on("activeItemChanged", function (e) {
+    console.log(e.count);
+});
+```
+
+## License
+
+This code is made available under the [Apache License v2.0](http://www.apache.org/licenses/LICENSE-2.0).
