@@ -83,7 +83,7 @@ $('#stack').stacker('next');
 The stacker supports one event, namely **activeItemChanged**. This event is triggered when the active card changes. 
 This can be caused by navigating through the stack or by adding / removing a card.
 
-The event object the following additional properties:
+The event object has the following additional properties:
 
 * **count**: The number of cards in the stack.
 * **activeItemIndex**: The index (0-based) of the currently active card.
