@@ -4,6 +4,8 @@
 
 Easily create a stack of cards which you can cylce through using this jQuery plugin.
 
+Tested with Google Chrome.
+
 ## Demo
 
 [Click here for a live demo](http://geersch.github.com/stacker/demo.html).
