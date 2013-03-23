@@ -4,6 +4,8 @@
 
 Easily create a stack of cards which you can cylce through using this jQuery plugin.
 
+Tested with Google Chrome.
+
 ## Demo
 
 [Click here for a live demo](http://geersch.github.com/stacker/demo.html).
@@ -14,7 +16,7 @@ The demo uses [Knockout](http://www.knockoutjs.com) to demonstrate the data bind
 
 ## Usage
 
-This component was created using [jQuery](http://code.jquery.com/jquery-1.9.1.min.js) 1.9.1.
+This component was created using [jQuery 1.9.1](http://code.jquery.com/jquery-1.9.1.min.js).
 
 Basic usage:
 
