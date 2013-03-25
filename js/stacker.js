@@ -42,7 +42,7 @@
         },
 
         previous: function () {
-            if (this.activeItemIndex == this.items.length - 1) return;
+            if (this.activeItemIndex == -1 || this.activeItemIndex == this.items.length - 1) return;
             this.activeItemIndex++;
             this._draw();
             this._triggerActiveItemChanged();
