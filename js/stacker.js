@@ -49,7 +49,7 @@
         },
 
         next: function () {
-            if (this.activeItemIndex == 0) return;
+            if (this.activeItemIndex <= 0) return;
             this.activeItemIndex--;
             this._draw();
             this._triggerActiveItemChanged();
