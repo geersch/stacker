@@ -66,6 +66,7 @@ function StackerViewModel(stacker) {
         self.numberOfItems(e.count);
         self.activeItemIndex(e.activeItemIndex);
         self.activeId(e.id);
+        if (e.activeItemIndex == -1) return;
         self.person(self.persons[e.activeItemIndex]);
     });
     this._stacker.stacker({ 'maxVisibleItems': 9 });
