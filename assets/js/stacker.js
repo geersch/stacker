@@ -112,8 +112,7 @@
             this._triggerActiveItemChanged();
         },
 
-        _triggerActiveItemChanged: function () {
-            if (this.activeItemIndex == -1) return;	
+        _triggerActiveItemChanged: function () {	
             var item = this.items[this.activeItemIndex];
             this.element.trigger({
                 type: 'activeItemChanged',
