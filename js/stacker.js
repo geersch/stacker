@@ -113,6 +113,7 @@
         },
 
         _triggerActiveItemChanged: function () {
+            if (this.activeItemIndex == -1) return;	
             var item = this.items[this.activeItemIndex];
             this.element.trigger({
                 type: 'activeItemChanged',
