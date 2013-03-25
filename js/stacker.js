@@ -105,8 +105,8 @@
         },
 
         _setActiveItem: function (e) {
-            var index = this.items.indexOf(e.data.item);
-            if (this.activeItemIndex == index) return;
+            var index = $.inArray(e.data.item, this.items);
+            if (index == -1 || this.activeItemIndex == index) return;
             this.activeItemIndex = index;
             this._draw();
             this._triggerActiveItemChanged();
