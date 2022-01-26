@@ -1,6 +1,6 @@
 # Stacker
 
-![Spin Edit Example](http://geersch.github.com/stacker/images/example.png)
+![Spin Edit Example](http://geersch.github.io/stacker/images/example.png)
 
 Easily create a stack of cards which you can cylce through using this jQuery plugin.
 
@@ -8,7 +8,7 @@ Tested with Google Chrome.
 
 ## Demo
 
-[Click here for a live demo](http://geersch.github.com/stacker/demo.html).
+[Click here for a live demo](https://geersch.github.io/stacker/demo.html).
 
 The HTML which you place within the DIV that is converted into a stacker will be used as a template to display the contents of the currently active card.
 As you navigate through the stacker (previous, next, adding items...) an event will be triggered. Use the event data to decide which data you should bind to the HTML elements displayed within the active card.
@@ -29,7 +29,7 @@ Basic usage:
   <form action="...">
     <label>...</label>
     <input type="text" id="..." />
-    ...  
+    ...
   </form>
 </div>
 
@@ -42,7 +42,7 @@ The above example converts the DIV with id stack into a stacker. The HTML (form)
 
 You can use the following additional options to modify the behaviour of the spin edit control:
 
-* **maxVisibleItems**: The maximum number of cards visible at one time (default 10). 
+- **maxVisibleItems**: The maximum number of cards visible at one time (default 10).
 
 ```
 <div id="stack">
@@ -90,15 +90,15 @@ $('#stack').stacker('next');
 
 ## Events
 
-The stacker supports one event, namely **activeItemChanged**. This event is triggered when the active card changes. 
+The stacker supports one event, namely **activeItemChanged**. This event is triggered when the active card changes.
 This can be caused by navigating through the stack or by adding / removing a card.
 
 The event object has the following additional properties:
 
-* **count**: The number of cards in the stack.
-* **activeItemIndex**: The index (0-based) of the currently active card.
-* **id**: The unique ID of the currently active card.
-* **container**: The contents (HTML) of the element turned into a stacker as a jQuery object.
+- **count**: The number of cards in the stack.
+- **activeItemIndex**: The index (0-based) of the currently active card.
+- **id**: The unique ID of the currently active card.
+- **container**: The contents (HTML) of the element turned into a stacker as a jQuery object.
 
 ```
 var stacker = $('#stack').stacker();
